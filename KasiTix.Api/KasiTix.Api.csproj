@@ -12,4 +12,9 @@
     <PackageReference Include="Scalar.AspNetCore" Version="2.17.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KasiTix.Domain\KasiTix.Domain.csproj" />
+    <ProjectReference Include="..\KasiTix.Infrastructure\KasiTix.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

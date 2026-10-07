@@ -20,4 +20,9 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KasiTix.Api\KasiTix.Api.csproj" />
+    <ProjectReference Include="..\KasiTix.Infrastructure\KasiTix.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
