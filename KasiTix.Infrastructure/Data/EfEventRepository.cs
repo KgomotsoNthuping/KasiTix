@@ -36,4 +36,15 @@ public sealed class EfEventRepository : IEventRepository
     {
         return _dbContext.SaveChangesAsync();
     }
+
+    public async Task<IReadOnlyList<Event>> ListAsync(EventStatus status)
+    {
+        return await _dbContext.Events
+            .AsNoTracking()
+            .Where(e => e.Status == status)
+            .Include(e => e.TicketTypes)
+            .AsSingleQuery()
+            .OrderBy(e => e.StartsAt)
+            .ToListAsync();
+    }
 }
