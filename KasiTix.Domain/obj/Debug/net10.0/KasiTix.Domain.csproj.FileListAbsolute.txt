@@ -1,0 +1,12 @@
+C:\Users\LCBitcube\Desktop\Repos\KasiTix\KasiTix.Domain\obj\Debug\net10.0\KasiTix.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LCBitcube\Desktop\Repos\KasiTix\KasiTix.Domain\obj\Debug\net10.0\KasiTix.Domain.AssemblyInfoInputs.cache
+C:\Users\LCBitcube\Desktop\Repos\KasiTix\KasiTix.Domain\obj\Debug\net10.0\KasiTix.Domain.AssemblyInfo.cs
+C:\Users\LCBitcube\Desktop\Repos\KasiTix\KasiTix.Domain\obj\Debug\net10.0\KasiTix.Domain.csproj.CoreCompileInputs.cache
+C:\Users\LCBitcube\Desktop\Repos\KasiTix\KasiTix.Domain\obj\Debug\net10.0\KasiTix.Domain.sourcelink.json
+C:\Users\LCBitcube\Desktop\Repos\KasiTix\KasiTix.Domain\bin\Debug\net10.0\KasiTix.Domain.deps.json
+C:\Users\LCBitcube\Desktop\Repos\KasiTix\KasiTix.Domain\bin\Debug\net10.0\KasiTix.Domain.dll
+C:\Users\LCBitcube\Desktop\Repos\KasiTix\KasiTix.Domain\bin\Debug\net10.0\KasiTix.Domain.pdb
+C:\Users\LCBitcube\Desktop\Repos\KasiTix\KasiTix.Domain\obj\Debug\net10.0\KasiTix.Domain.dll
+C:\Users\LCBitcube\Desktop\Repos\KasiTix\KasiTix.Domain\obj\Debug\net10.0\refint\KasiTix.Domain.dll
+C:\Users\LCBitcube\Desktop\Repos\KasiTix\KasiTix.Domain\obj\Debug\net10.0\KasiTix.Domain.pdb
+C:\Users\LCBitcube\Desktop\Repos\KasiTix\KasiTix.Domain\obj\Debug\net10.0\ref\KasiTix.Domain.dll

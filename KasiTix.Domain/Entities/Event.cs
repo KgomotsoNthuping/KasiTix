@@ -4,7 +4,6 @@ using KasiTix.Domain.Exceptions;
 
 public enum EventStatus { Draft, Published, Cancelled }
 
-    private Event() { }
 
     public class Event
     {
@@ -24,7 +23,8 @@ public enum EventStatus { Draft, Published, Cancelled }
 
  // TODO (Week 5): EF Core has to load events whose StartsAt is already in
  // the past. If EF Core calls the constructor below to do that, it throws.
- // What does this class need so EF Core never calls it?
+ // What does this class need so EF Core never calls it?.
+    private Event() { }
     public Event(string name, string venue, DateTime startsAt)
     {
         if (string.IsNullOrWhiteSpace(name) || name.Length > 120)
