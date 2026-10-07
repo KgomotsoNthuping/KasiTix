@@ -1,23 +1,29 @@
+using FluentValidation;
+using KasiTix.Api.Common;
+using Scalar.AspNetCore;
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+// Keeps "Async" in action names, so CreatedAtAction(nameof(GetByIdAsync), ...) finds its
+ route.
+builder.Services.AddControllers(options => options.SuppressAsyncSuffixInActionNames =
+ false);
 builder.Services.AddOpenApi();
-
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+builder.Services.AddExceptionHandler<ApiExceptionHandler>();
+builder.Services.AddProblemDetails();
+// TODO (Week 5):
+// - read the connection string from user-secrets, and fail loudly at startup if it's
+ missing
+// - AddDbContext with UseNpgsql + EnableRetryOnFailure
+// - register every repository and service, each with a lifetime you can defend
 var app = builder.Build();
-
-// Configure the HTTP request pipeline.
+// TODO (Week 5): apply pending migrations on startup.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+ app.MapOpenApi();
+ app.MapScalarApiReference();
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
+app.UseExceptionHandler();
 app.MapControllers();
-
 app.Run();
+// Lets KasiTix.Tests boot this app with WebApplicationFactory<Program>.
+public partial class Program { }
