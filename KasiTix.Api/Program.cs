@@ -4,7 +4,8 @@ using Scalar.AspNetCore;
 using KasiTix.Domain.Repositories;
 using KasiTix.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using KasiTix.Infrastructure.Data
+using KasiTix.Infrastructure.Data;
+using KasiTix.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 // Keeps "Async" in action names, so CreatedAtAction(nameof(GetByIdAsync), ...) finds its route.
@@ -35,6 +36,14 @@ builder.Services.AddScoped<
 builder.Services.AddScoped<
     IOrderRepository,
     EfOrderRepository>();
+
+builder.Services.AddScoped<
+    IEventService,
+    EventService>();
+
+builder.Services.AddScoped<
+    IOrderService,
+    OrderService>();
 
 // TODO (Week 5):
 // - read the connection string from user-secrets, and fail loudly at startup if it's missing

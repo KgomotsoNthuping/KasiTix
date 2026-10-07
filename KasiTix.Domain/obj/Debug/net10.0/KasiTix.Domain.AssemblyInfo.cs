@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KasiTix.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aa17415cedcb716e3c5d11707602a3b87c250597")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2bc0a932a22a780db7ac613444c637795b9254ef")]
 [assembly: System.Reflection.AssemblyProductAttribute("KasiTix.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KasiTix.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

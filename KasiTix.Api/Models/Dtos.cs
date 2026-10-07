@@ -27,14 +27,48 @@ using KasiTix.Domain.Entities;
         e.TicketTypes.Select(TicketTypeResponse.FromEntity).ToList());
     }
     
-    public record OrderLineResponse(Guid TicketTypeId, string TicketTypeName, int Quantity,
-    decimal UnitPrice);
+    public record OrderLineResponse(
+        Guid TicketTypeId, 
+        string TicketTypeName, 
+        int Quantity,
+        decimal UnitPrice);
 
     // TODO: add a FromEntity for OrderResponse. OrderLine only holds a
     // TicketTypeId, so where does TicketTypeName come from?
     public record OrderResponse(
-    Guid Id, Guid EventId, string BuyerEmail, string Status, DateTime CreatedAt,
-    IReadOnlyList<OrderLineResponse> Lines, decimal Total);
+    Guid Id, 
+    Guid EventId, 
+    string BuyerEmail, 
+    string Status, 
+    DateTime CreatedAt,
+    IReadOnlyList<OrderLineResponse> Lines, 
+    decimal Total)
+
+    {
+        public static OrderResponse FromEntity(Order order,IReadOnlyCollection<TicketType> ticketTypes)
+        {
+            var names = ticketTypes.ToDictionary(
+                    ticket => ticket.Id,
+                    ticket => ticket.Name);
+
+            var lines = order.Lines.Select(line => new OrderLineResponse(line.TicketTypeId,
+                        names.TryGetValue(line.TicketTypeId, out var name)
+                            ? name
+                            : "Unknown",
+                        line.Quantity,
+                        line.UnitPrice))
+                .ToList();
+
+            return new OrderResponse(
+                order.Id,
+                order.EventId,
+                order.BuyerEmail,
+                order.Status.ToString(),
+                order.CreatedAt,
+                lines,
+                order.Total);
+        }
+    }
 
     // AIP-158: an empty NextPageToken is the only end-of-list signal (Tier 2).
     public record PagedResponse<T>(IReadOnlyList<T> Items, string NextPageToken);
